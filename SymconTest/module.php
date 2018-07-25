@@ -10,6 +10,10 @@ require(__DIR__ . "\\pimodule.php");
             // Diese Zeile nicht löschen
             parent::__construct($InstanceID);
  
+            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
+
+            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange"));
+
             // Selbsterstellter Code
         }
  
@@ -43,6 +47,12 @@ require(__DIR__ . "\\pimodule.php");
 
         public function RegisterProperties () {
 
+
+        }
+
+        public function onAutomatikChange () {
+
+            echo "Automatik changed :)";
 
         }
 }
