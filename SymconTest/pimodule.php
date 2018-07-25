@@ -1357,7 +1357,7 @@ abstract class PISymconModule extends IPSModule {
 
             $IDs[] = $idd;
 
-            $this->setIcon($id, "Power");
+            $this->setIcon($idd, "Power");
 
         }
 
