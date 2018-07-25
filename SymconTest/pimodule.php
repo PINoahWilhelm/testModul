@@ -1368,6 +1368,8 @@ abstract class PISymconModule extends IPSModule {
 
                 $functionName = explode(">", $completeStr)[1];
 
+                echo $idd . "|" . $functionName;
+
                 $this->createOnChangeEvents(array($idd . "|" . $functionName));                
 
             }
