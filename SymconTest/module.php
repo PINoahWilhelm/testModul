@@ -31,9 +31,12 @@ require(__DIR__ . "\\pimodule.php");
         public function CheckVariables () {
 
             // Variablen checken -und erstellen
+
+            $events = $this->checkFolder("Events");
+
             $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
 
-            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange"), $this->InstanceID);
+            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange"), $events);
 
         }
 
