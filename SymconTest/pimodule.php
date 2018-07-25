@@ -1370,7 +1370,7 @@ abstract class PISymconModule extends IPSModule {
 
                 echo $idd . "|" . $functionName;
 
-                // $this->createOnChangeEvents(array($idd . "|" . $functionName), $position);                
+                $this->createOnChangeEvents(array($idd . "|" . $functionName), $position);                
 
             }
 
