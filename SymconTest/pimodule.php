@@ -1364,7 +1364,7 @@ abstract class PISymconModule extends IPSModule {
 
             $idd = $this->checkBoolean($varName, true, $position, $index, $defaultValue);
 
-            if (strpos($varName, '>') !== false) {
+            if (strpos($completeStr, '>') !== false) {
 
                 $functionName = explode(">", $completeStr)[1];
 
