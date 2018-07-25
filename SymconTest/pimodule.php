@@ -1943,7 +1943,7 @@ abstract class PISymconModule extends IPSModule {
                     if (strpos($funcString, "|") !== false) {
 
                         $funcAry = explode("|", $funcString);
-                        $targetID = $funcAry[0];
+                        $targetID = intval($funcAry[0]);
                         $function = $funcAry[1];
 
                         $newName = IPS_GetName($targetID);
