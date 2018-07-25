@@ -1320,7 +1320,7 @@ abstract class PISymconModule extends IPSModule {
             $position = $this->InstanceID;
 
         } else {
-            $position = "";
+            $position = $position->InstanceID;
         }
 
         $index;
@@ -1364,15 +1364,15 @@ abstract class PISymconModule extends IPSModule {
 
             $idd = $this->checkBoolean($varName, true, $position, $index, $defaultValue);
 
-            if (strpos($varName, '>') !== false) {
+            // if (strpos($varName, '>') !== false) {
 
-                $functionName = explode(">", $completeStr)[1];
+            //     $functionName = explode(">", $completeStr)[1];
 
-                echo $idd . "|" . $functionName;
+            //     echo $idd . "|" . $functionName;
 
-                $this->createOnChangeEvents(array($idd . "|" . $functionName), $position);                
+            //     $this->createOnChangeEvents(array($idd . "|" . $functionName), $position);                
 
-            }
+            // }
 
             $IDs[] = $idd;
 
