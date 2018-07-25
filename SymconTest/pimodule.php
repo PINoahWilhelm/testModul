@@ -1311,7 +1311,7 @@ abstract class PISymconModule extends IPSModule {
 
     } 
 
-    // $varNames Beispiel: array("Element 1|false|1", "Element 2|true|2")
+    // $varNames Beispiel: array("Element 1|false|1>onElement1Change", "Element 2|true|2")
     //                     array("Name|DefaultVal|Index")
     protected function createSwitches ($varNames, $position = null) {
 
