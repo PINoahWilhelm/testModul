@@ -326,6 +326,9 @@ abstract class PISymconModule extends IPSModule {
         
         }
         
+        print_r($searchIn);
+        echo "//";
+
         $childs = IPS_GetChildrenIDs($searchIn);
 
         if (!IPS_HasChildren($searchIn)) {
