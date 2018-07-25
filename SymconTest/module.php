@@ -9,10 +9,6 @@ require(__DIR__ . "\\pimodule.php");
         public function __construct($InstanceID) {
             // Diese Zeile nicht löschen
             parent::__construct($InstanceID);
- 
-            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
-
-            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange"));
 
             // Selbsterstellter Code
         }
@@ -35,6 +31,9 @@ require(__DIR__ . "\\pimodule.php");
         public function CheckVariables () {
 
             // Variablen checken -und erstellen
+            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
+
+            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange"));
 
         }
 
