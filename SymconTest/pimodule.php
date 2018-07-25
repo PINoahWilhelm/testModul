@@ -1329,6 +1329,9 @@ abstract class PISymconModule extends IPSModule {
 
         foreach ($varNames as $varName) {
 
+            $vrnme = "";
+            $completeStr = $varName;
+
             if (strpos($varName, '|') !== false) {
 
                 $completeName = $varName;
@@ -1336,6 +1339,7 @@ abstract class PISymconModule extends IPSModule {
                 $expl = explode("|", $varName);
                 $defaultValue = $expl[1];
                 $varName = $expl[0];
+                $vrnme = $varName;
 
                 if ($defaultValue == "true") {
                     $defaultValue = true;
@@ -1359,6 +1363,14 @@ abstract class PISymconModule extends IPSModule {
             }
 
             $idd = $this->checkBoolean($varName, true, $position, $index, $defaultValue);
+
+            if (strpos($varName, '>') !== false) {
+
+                $functionName = explode(">", $completeStr)[1];
+
+                $this->createOnChangeEvents(array($idd . "|" . $functionName));                
+
+            }
 
             $IDs[] = $idd;
 

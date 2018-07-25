@@ -34,9 +34,9 @@ require(__DIR__ . "\\pimodule.php");
 
             $events = $this->checkFolder("Events");
 
-            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
+            $switches = $this->createSwitches(array("Automatik|false|0>onAutomatikChange", "Sperre|false|1"));
 
-            $this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange", $switches[1] . "|onSperreChange"), $events);
+            //$this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange", $switches[1] . "|onSperreChange"), $events);
 
         }
 
