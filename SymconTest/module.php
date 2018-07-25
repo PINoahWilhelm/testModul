@@ -2,7 +2,7 @@
 require(__DIR__ . "\\pimodule.php");
 
     // Klassendefinition
-    class SymconStartWithCreator extends PISymconModule {
+    class SymconTest extends PISymconModule {
 
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
