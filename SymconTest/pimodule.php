@@ -1146,8 +1146,12 @@ abstract class PISymconModule extends IPSModule {
 
     }
 
-    protected function checkFolder ($name, $parent ,$index = 100000) {
+    protected function checkFolder ($name, $parent = null ,$index = 100000) {
         
+        if ($parent == null || $parent == 0) {
+            $parent = $this->InstanceID;
+        }
+
         if ($this->doesExist($this->searchObjectByName($name, $parent)) == false) {
             
             $targets = $this->createFolder($name);
