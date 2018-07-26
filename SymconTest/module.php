@@ -30,7 +30,7 @@ require(__DIR__ . "\\pimodule.php");
 
         protected function configForm () {
 
-            $this->form->elements = new Label("Test");
+            $this->form->elements[] = new Label("Test");
 
         }
 
