@@ -19,8 +19,6 @@ abstract class PISymconModule extends IPSModule {
     public function __construct($InstanceID) {
         // Diese Zeile nicht löschen
 
-        $this->configForm();
-
         parent::__construct($InstanceID);
 
         $className = get_class($this);
@@ -65,6 +63,7 @@ abstract class PISymconModule extends IPSModule {
     }
 
     public function GetConfigurationForm() {
+        $this->configForm();
         return json_encode($this->form);
     }
 
