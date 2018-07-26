@@ -2051,8 +2051,8 @@ abstract class PISymconModule extends IPSModule {
 
 
 interface iFormElement {
-    public $type;
-    public $name;
+    // public $type;
+    // public $name;
 }
 
 class Label implements iFormElement {
