@@ -56,7 +56,7 @@ abstract class PISymconModule extends IPSModule {
         
     }
 
-    protected function configForm () {
+    public function configForm () {
 
 
 

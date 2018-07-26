@@ -28,7 +28,7 @@ require(__DIR__ . "\\pimodule.php");
 
         }
 
-        protected function configForm () {
+        public function configForm () {
 
             $this->form->elements[] = new Label("Test");
 
