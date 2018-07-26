@@ -9,6 +9,8 @@ abstract class PISymconModule extends IPSModule {
     public $prefix = null;
     public $instanceName = null;
     public $parentID = null;
+    public $form;
+
 
     // Vordefinierte Variablen (müssen nicht beschrieben werden)
     public $AutomatikVar = null;
@@ -16,6 +18,9 @@ abstract class PISymconModule extends IPSModule {
 
     public function __construct($InstanceID) {
         // Diese Zeile nicht löschen
+
+        $this->configForm();
+
         parent::__construct($InstanceID);
 
         $className = get_class($this);
@@ -48,7 +53,19 @@ abstract class PISymconModule extends IPSModule {
 
         }
 
+        $this->form = new Form();
+
         
+    }
+
+    protected function configForm () {
+
+
+
+    }
+
+    public function GetConfigurationForm() {
+        return json_encode($this->form);
     }
 
     // Überschreibt die interne IPS_Create($id) Funktion
@@ -65,7 +82,6 @@ abstract class PISymconModule extends IPSModule {
         $this->CheckVariables();
 
         $this->CheckScripts();
-
 
     }
 
@@ -2030,7 +2046,16 @@ abstract class PISymconModule extends IPSModule {
 
 }
 
-class FormLabel {
+
+## LISTE FEHLT!
+
+
+interface iFormElement {
+    public $type;
+    public $name;
+}
+
+class Label implements iFormElement {
 
     public $type = "Label";
     public $label;
@@ -2040,6 +2065,330 @@ class FormLabel {
         $this->label = $text;
 
     }
+
+}
+
+class CheckBox implements iFormElement {
+
+    public $type = "CheckBox";
+    public $name;
+    public $caption;
+
+    public function __construct($name, $caption) {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class HorizontalSlider implements iFormElement {
+
+    public $type = "HorizontalSlider";
+    public $name;
+    public $caption;
+    public $minimum;
+    public $maximum;
+    public $onChange;
+
+    public function __construct ($name, $caption = "No Title", $minimum = 0, $maximum = 100, $onChange = "") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+        $this->minimum = $minimum;
+        $this->maximum = $maximum;
+        $this->onChange = $onChange;
+
+    }
+
+}
+
+class IntervalBox implements iFormElement {
+
+    public $type = "IntervalBox";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name;
+        $this->caption;
+
+    }
+
+}
+
+class NumberSpinner implements iFromElement {
+
+    public $type = "NumberSpinner";
+    public $name;
+    public $caption;
+    public $digits;
+    public $hex;
+    public $suffix;
+
+    public function __construct($name, $caption = "Unnamed", $digits = 0, $hex = false, $suffix = "") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+        $this->digits = $digits;
+        $this->hex = $hex;
+        $this->suffix = $suffix;
+
+    }
+
+}
+
+class Button {
+
+    public $type = "Button";
+    public $label;
+    public $onClick;
+
+    public function __construct ($label, $onClick) {
+
+        $this->label = $label;
+        $this->onClick = $onClick;
+
+    }
+
+}
+
+class PasswordTextBox implements iFormElement {
+
+    public $type = "PasswordTextBox";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption) {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class Select implements iFormElement {
+
+    public $type = "";
+    public $name;
+    public $caption;
+    public $options[];
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectOption {
+
+    public $label;
+    public $value;
+
+    public function __construct($label, $value) {
+
+        $this->label = $label;
+        $this->value = $value;
+
+    }
+
+}
+
+class SelectCategory implements iFormElement {
+
+    public $type = "SelectCategory";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+
+}
+
+class SelectColor implements iFormElement {
+
+    public $type = "SelectColor";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+
+}
+
+class SelectDate implements iFormElement {
+
+    public $type = "SelectDate";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectDateTime implements iFormElement {
+
+    public $type = "SelectDateTime";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectEvent implements iFormElement {
+
+    public $type = "SelectEvent";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectFile implements iFormElement {
+
+    public $type = "SelectFile";
+    public $name;
+    public $caption;
+    public $extension;
+
+    public function __construct ($name, $caption = "Unnamed", $extension = null) {
+
+        $this->name = $name;
+        $this->caption = $caption;
+        $this->extension = $extension;
+
+    }
+    
+}
+
+class SelectInstance implements iFormElement {
+
+    public $type = "SelectInstance";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectLink implements iFormElement {
+
+    public $type = "SelectLink";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectMedia implements iFormElement {
+
+    public $type = "SelectMedia";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectObject implements iFormElement {
+
+    public $type = "SelectObject";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectScript implements iFormElement {
+
+    public $type = "SelectScript";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class SelectVariable implements iFormElement {
+
+    public $type = "SelectVariable";
+    public $name;
+    public $caption;
+
+    public function __construct ($name, $caption = "Unnamed") {
+
+        $this->name = $name;
+        $this->caption = $caption;
+
+    }
+
+}
+
+class Form {
+
+    public $elements[];
+    public $actions[];
+    public $status[];
 
 }
 

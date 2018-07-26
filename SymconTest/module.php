@@ -28,6 +28,12 @@ require(__DIR__ . "\\pimodule.php");
 
         }
 
+        protected function configForm () {
+
+            $this->form->elements = new Label("Test");
+
+        }
+
         public function CheckVariables () {
 
             // Variablen checken -und erstellen
