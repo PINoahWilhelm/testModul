@@ -32,9 +32,13 @@ require(__DIR__ . "\\pimodule.php");
 
             // Variablen checken -und erstellen
 
-            $events = $this->checkFolder("Events");
+            $lbl = new FormLabel("Im a label");
 
-            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));
+            echo json_encode($lbl);
+
+           /* $events = $this->checkFolder("Events");
+
+            $switches = $this->createSwitches(array("Automatik|false|0", "Sperre|false|1"));*/
 
             //$this->createOnChangeEvents(array($switches[0] . "|onAutomatikChange", $switches[1] . "|onSperreChange"), $events);
 
