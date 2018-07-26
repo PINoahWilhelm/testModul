@@ -38,9 +38,9 @@ require(__DIR__ . "\\pimodule.php");
 
             // Variablen checken -und erstellen
 
-            $lbl = new FormLabel("Im a label");
+            // $lbl = new FormLabel("Im a label");
 
-            echo json_encode($lbl);
+            // echo json_encode($lbl);
 
            /* $events = $this->checkFolder("Events");
 
