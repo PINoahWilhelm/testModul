@@ -2175,7 +2175,7 @@ class Select implements iFormElement {
     public $type = "";
     public $name;
     public $caption;
-    public $options[];
+    public $options;
 
     public function __construct ($name, $caption = "Unnamed") {
 
