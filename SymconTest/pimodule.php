@@ -2119,7 +2119,7 @@ class IntervalBox implements iFormElement {
 
 }
 
-class NumberSpinner implements iFromElement {
+class NumberSpinner implements iFormElement {
 
     public $type = "NumberSpinner";
     public $name;
