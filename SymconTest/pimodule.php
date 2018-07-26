@@ -2030,7 +2030,7 @@ abstract class PISymconModule extends IPSModule {
 
 }
 
-public class FormLabel {
+class FormLabel {
 
     public $type = "Label";
     public $label;
