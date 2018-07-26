@@ -2386,9 +2386,9 @@ class SelectVariable implements iFormElement {
 
 class Form {
 
-    public $elements[];
-    public $actions[];
-    public $status[];
+    public $elements;
+    public $actions;
+    public $status;
 
 }
 
